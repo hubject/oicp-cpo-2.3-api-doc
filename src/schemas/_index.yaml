@@ -1,0 +1,72 @@
+eRoamingAcknowledgmen:
+  $ref: "./eRoamingAcknowledgment.yaml"
+eRoamingAuthorizationStart:
+  $ref: "./eRoamingAuthorizationStart.yaml"
+eRoamingAuthorizationStop:
+  $ref: "./eRoamingAuthorizationStop.yaml"
+eRoamingAuthorizeRemoteReservationStart:
+  $ref: "./eRoamingAuthorizeRemoteReservationStart.yaml"
+eRoamingAuthorizeRemoteReservationStop:
+  $ref: "./eRoamingAuthorizeRemoteReservationStop.yaml"
+eRoamingAuthorizeRemoteStart:
+  $ref: "./eRoamingAuthorizeRemoteStart.yaml"
+eRoamingAuthorizeRemoteStop:
+  $ref: "./eRoamingAuthorizeRemoteStop.yaml"
+eRoamingAuthorizeStart:
+  $ref: "./eRoamingAuthorizeStart.yaml"
+eRoamingAuthorizeStop:
+  $ref: "./eRoamingAuthorizeStop.yaml"
+eRoamingChargeDetailRecord:
+  $ref: "./eRoamingChargeDetailRecord.yaml"
+eRoamingChargingNotificationEnd:
+  $ref: "./eRoamingChargingNotificationEnd.yaml"
+eRoamingChargingNotificationError:
+  $ref: "./eRoamingChargingNotificationError.yaml"
+eRoamingChargingNotificationProgress:
+  $ref: "./eRoamingChargingNotificationProgress.yaml"
+eRoamingChargingNotificationStart:
+  $ref: "./eRoamingChargingNotificationStart.yaml"
+eRoamingPushEVSEPricing:
+  $ref: "./eRoamingPushEVSEPricing.yaml"
+eRoamingPushEvseData:
+  $ref: "./eRoamingPushEvseData.yaml"
+eRoamingPushEvseStatus:
+  $ref: "./eRoamingPushEvseStatus.yaml"
+eRoamingPushPricingProductData:
+  $ref: "./eRoamingPushPricingProductData.yaml"
+EvcoID:
+  $ref: "./EvcoID.yaml"
+GeoCoordinates:
+  $ref: "./GeoCoordinates.yaml"
+PlugAndChargeIdentification:
+  $ref: "./PlugAndChargeIdentification.yaml"
+CurrencyID:
+  $ref: "./CurrencyID.yaml"
+RFIDMifareFamilyIdentification:
+  $ref: "./RFIDMifareFamilyIdentification.yaml"
+ChargingNotificationType:
+  $ref: "./ChargingNotificationType.yaml"
+ProductID:
+  $ref: "./ProductID.yaml"
+RemoteIdentification:
+  $ref: "./RemoteIdentification.yaml"
+SessionID:
+  $ref: "./SessionID.yaml"
+RFIDIdentification:
+  $ref: "./RFIDIdentification.yaml"
+StatusCode:
+  $ref: "./StatusCode.yaml"
+QRCodeIdentification:
+  $ref: "./QRCodeIdentification.yaml"
+ProviderID:
+  $ref: "./ProviderID.yaml"
+OperatorID:
+  $ref: "./OperatorID.yaml"
+EvseID:
+  $ref: "./EvseID.yaml"
+UID:
+  $ref: "./UID.yaml"
+ReferenceUnit:
+  $ref: "./ReferenceUnit.yaml"
+InfoTextType:
+  $ref: "./InfoTextType.yaml"

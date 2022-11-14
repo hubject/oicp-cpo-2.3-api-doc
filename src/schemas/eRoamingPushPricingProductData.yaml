@@ -1,0 +1,67 @@
+type: object
+description: eRoamingPushPricingProductData is a message that is sent in order to upload data pertaining to a CPO’s pricing products (i.e. tarrifs) to the Hubject system.
+required:
+  - ActionType
+  - PricingProductData
+properties:
+  ActionType:
+    type: string
+    enum: ['fullLoad', 'update', 'insert', 'delete']
+    description: Describes the action that has to be performed by Hubject with the provided data.
+  PricingProductData:
+    type: object
+    required:
+      - OperatorID
+      - ProviderID
+      - PricingDefaultPrice
+      - PricingDefaultPriceCurrency
+      - PricingDefaultReferenceUnit
+      - PricingProductDataRecords
+    description: Details of pricing products offered by a particular operator for a specific provider
+    properties:
+      OperatorID:
+        $ref: "./OperatorID.yaml"
+      OperatorName:
+        type: string
+        description: Free text for operator
+        maximum: 100
+      ProviderID:
+        $ref: "./ProviderIDAsterisk.yaml"
+      PricingDefaultPrice:
+        type: number
+        description: A default price for pricing sessions at undefined EVSEs
+      PricingDefaultPriceCurrency:
+        $ref: "./CurrencyID.yaml"
+      PricingDefaultReferenceUnit:
+        $ref: "./ReferenceUnit.yaml"
+      PricingProductDataRecords:
+        type: array
+        description: A list of pricing products
+        items:
+          $ref: "./PricingProductDataRecord.yaml"
+example:
+  ActionType: fullLoad
+  PricingProductData:
+    OperatorID: DE*ABC
+    OperatorName: ABC technologies
+    PricingDefaultPrice: 0
+    PricingDefaultPriceCurrency: EUR
+    PricingDefaultReferenceUnit: HOUR
+    PricingProductDataRecords:
+      - AdditionalReferences:
+        - AdditionalReference: 'PARKING FEE'
+          AdditionalReferenceUnit: HOUR
+          PricePerAdditionalReferenceUnit: 2
+        IsValid24hours: false
+        MaximumProductChargingPower: 22
+        PricePerReferenceUnit: 1
+        ProductAvailabilityTimes:
+          - Periods:
+            - begin: "09:00"
+              end: "18:00"
+            on: "Everyday"
+        ProductID: "AC 1"
+        ProductPriceCurrency: "EUR"
+        ReferenceUnit: "HOUR"
+    ProviderID: "*"
+

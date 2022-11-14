@@ -1,0 +1,32 @@
+post:
+  summary: eRoamingAuthorizeStop_V2.1
+  operationId: eRoamingAuthorizeStop_V2.1
+  description: |
+    __Note:__
+      * To `SEND`
+      * Implementation: `OPTIONAL`
+    
+    ![Authorize stop diagram](images/authorizestop.png)
+
+    eRoamingAuthorizeStop basically works in a similar way to the operation eRoamingAuthorizeStart.
+    The request is sent in order to authorize the stopping of a charging process.
+    The request `MUST` contain the SessionID that was created by Hubject after the initial eRoamingAuthorizeStart request.
+    In most cases, Hubject can derive the EMP that authorized the charging process from the SessionID and can directly and offline authorize the request or forward the request for stopping to the EMP.
+    In case the charging session was originally authorized offline by the HBS, the session `MUST` only be stopped with the same medium, which was used for starting the session
+  tags:
+    - eRoamingAuthorization
+  parameters:
+    - $ref: "../../parameters/path/operatorID.yaml"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/eRoamingAuthorizeStop.yaml"
+  responses:
+    '200':
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/eRoamingAuthorizationStop.yaml"

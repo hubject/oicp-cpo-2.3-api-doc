@@ -1,0 +1,54 @@
+type: object
+required:
+  - ActionType
+  - OperatorEvseStatus
+description: eRoamingPushEvseStatus is a message that is sent in order to upload EVSE status data to Hubject.
+properties:
+  ActionType:
+    type: string
+    enum: ['fullLoad', 'update', 'insert', 'delete']
+    description: Describes the action that has to be performed by Hubject with the provided data.
+  OperatorEvseStatus:
+    type: object
+    required:
+      - OperatorID
+      - EvseStatusRecord
+    description: Indicates the Eves status
+    properties:
+      OperatorID:
+        $ref: "./OperatorID.yaml"
+      OperatorName:
+        type: string
+        description: Free text for operator
+        maximum: 100
+      EvseStatusRecord:
+        type: array
+        description: EvseStatus list
+        items:
+          type: object
+          required:
+            - EvseID
+            - EvseStatus
+          properties:
+            EvseID:
+              $ref: "./EvseID.yaml"
+            EvseStatus:
+              type: string
+              enum: ['Available', 'Reserved', 'Occupied', 'OutOfService', 'EvseNotFound', 'Unknown']
+              description: |
+                | Option | Description |                
+                | ------ | ----------- |
+                | Available | Charging Spot is available for charging. |
+                | Reserved | Charging Spot is reserved and not available for charging. |
+                | Occupied | Charging Spot is busy. |
+                | OutOfService | Charging Spot is out of service and not available for charging. |
+                | EvseNotFound | The requested EvseID and EVSE status does not exist within the Hubject database. |
+                | Unknown | No status information available. |
+example:
+  ActionType: fullLoad
+  OperatorEvseStatus:
+    OperatorID: DE*ABC
+    OperatorName: 'ABC technologies'
+    EvseStatusRecord:
+      - EvseID: DE*XYZ*ETEST1
+        EvseStatus: Available

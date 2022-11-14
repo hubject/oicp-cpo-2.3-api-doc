@@ -1,0 +1,10 @@
+type: string
+description: |
+  Default Reference Unit in time or kWh
+  
+  | Option | Description |
+  | ------ | ----------- |
+  | HOUR | Defined Reference Unit Type |
+  | KILOWATT_HOUR | Defined Reference Unit Type |
+  | MINUTE | Defined Reference Unit Type |
+example: HOUR

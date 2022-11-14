@@ -1,0 +1,4 @@
+type: string
+description: |
+  Defined RFID Type
+enum: [mifareCls, mifareDes, calypso, nfc, mifareFamily]

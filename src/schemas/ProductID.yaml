@@ -1,0 +1,12 @@
+type: string
+description: |
+  The ProductIDType defines some standard values (see below). The type however also supports custom ProductIDs that can be specified by partners (as a string of 50 characters maximum length).
+  | Option | Description |
+  |--------|-------------|
+  | Standard Price | Standard Price |
+  | AC1 | Product for AC 1 Phase charging |
+  | AC3 | Product for AC 3 Phase charging |
+  | DC | Product for DC charging |
+  | CustomProductID | There is no option “CustomProductID”, this sample option is meant to indicates that custom product ID specifications by partners (as a string of 50 characters maximum length) are allowed as well.|
+example: AC1
+maximum: 50

@@ -1,0 +1,28 @@
+post:
+  summary: eRoamingPushPricingProductData_V1.0
+  operationId: eRoamingPushPricingProductData_V1.0
+  description: |
+    __Note:__
+      * To `SEND`
+      * Implementation: `OPTIONAL`
+
+      When a CPO sends an eRoamingPushPricingProductData request, Hubject checks whether there is a valid flexible/dynamic pricing service offer (for the service type Authorization) created by the CPO. If so, the operation allows the upload of pricing product data to Hubject. In addition, it is also possible to update or delete pricing data previously pushed with an upload operation request. How the transferred data is to be processed `MUST` be defined in the “ActionType” field of the request. Four processing options (i.e. Action Types) exist, details of which can be seen in eRoamingPushPricingProductData message
+
+      The pricing product data to be processed `MUST` be provided in the “PricingProductData” field, which consists of “PricingProductDataRecord” structures. Hubject keeps a history of all updated and changed data records. Every successful push operation – irrespective of the performed action – leads to a new version of currently valid data records. Furthermore, every operation is logged with the current timestamp. Thus, Hubject can reconstruct the status of pricing data for every point in time in the past.
+  tags:
+    - eRoamingDynamicPricing
+  parameters:
+    - $ref: "../../parameters/path/operatorID.yaml"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/eRoamingPushPricingProductData.yaml"
+  responses:
+    '200':
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/eRoamingAcknowledgment.yaml"

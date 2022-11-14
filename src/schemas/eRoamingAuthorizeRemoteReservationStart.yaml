@@ -1,0 +1,77 @@
+type: object
+required:
+  - ProviderID
+  - EvseID
+  - Identification
+properties:
+  SessionID:
+    $ref: './SessionID.yaml'
+  CPOPartnerSessionID:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by the CPO to the related operation. Partner systems can use this field to link their own session handling to HBS processes.
+  EMPPartnerSessionId:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by an EMP to the related operation. Partner systems can use this field to link their own session handling to HBS processes.
+  ProviderID:
+    $ref: './ProviderID.yaml'
+  EvseID:
+    $ref: './EvseID.yaml'
+  Identification:
+    type: object
+    description: |
+      1. The option RFIDIdentification `MUST` not be used in the eRoamingAuthorization process. For RFID Authorization, only the option RFIDMifareFamilyIdentification `SHOULD` be used in the respective eRoamingAuthorization messages.
+      2. For the Remote Authorization process, only the option RemoteIdentification MUST be used in the respective messages.
+    properties:
+      RFIDMifareFamilyIdentification:
+        $ref: './RFIDMifareFamilyIdentification.yaml'
+      RFIDIdentification:
+        $ref: './RFIDIdentification.yaml'
+      QRCodeIdentification:
+        $ref: './QRCodeIdentification.yaml'
+      PlugAndChargeIdentification:
+        $ref: './PlugAndChargeIdentification.yaml'
+      RemoteIdentification:
+        $ref: './RemoteIdentification.yaml'
+  PartnerProductID:
+    $ref: "./ProductID.yaml"
+  Duration:
+    type: integer
+    format: int64
+    maximum: 99
+    minimum: 1
+    example: 10
+    description: Duration of reservation in minutes
+example:
+  CPOPartnerSessionID: 1234XYZ
+  Duration: 15
+  EMPPartnerSessionID: 2345ABC
+  EvseID: DE*XYZ*ETEST1
+  Identification:
+    RFIDMifareFamilyIdentification:
+      UID: 1234ABCD
+    QRCodeIdentification:
+      EvcoID: DE-DCB-C12345678-X
+      HashedPIN:
+        Function: Bcrypt
+        LegacyHashData:
+          Function: MD5
+          Salt: a5ghdhf73h
+          Value: a5ghdhf73h
+        Value: a5ghdhf73h
+      PIN: '1234'
+    PlugAndChargeIdentification:
+      EvcoID: DE-DCB-C12345678-X
+    RemoteIdentification:
+      EvcoID: DE-DCB-C12345678-X
+    RFIDIdentification:
+      EvcoID: DE-DCB-C12345678-X
+      ExpiryDate: 2021-01-23T14:23:54.228Z
+      PrintedNumber: '9876655'
+      RFID: mifareCls
+      UID: 1234ABCD
+  PartnerProductID: Reservation
+  ProviderID: DE-DCB
+  SessionID: b2688855-7f00-0002-6d8e-48d883f6abb6
+

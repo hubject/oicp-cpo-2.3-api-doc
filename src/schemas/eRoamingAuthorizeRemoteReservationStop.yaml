@@ -1,0 +1,27 @@
+type: object
+required:
+  - ProviderID
+  - EvseID
+  - SessionID
+properties:
+  SessionID:
+    $ref: './SessionID.yaml'
+  CPOPartnerSessionID:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by the CPO to the related operation. Partner systems can use this field to link their own session handling to HBS processes.
+  EMPPartnerSessionId:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by an EMP to the related operation. Partner systems can use this field to link their own session handling to HBS processes.
+  ProviderID:
+    $ref: './ProviderID.yaml'
+  EvseID:
+    $ref: './EvseID.yaml'
+example:
+  EvseID: DE*XYZ*ETEST1
+  CPOPartnerSessionID: 1234XYZ
+  EMPPartnerSessionID: 2345ABC
+  ProviderID: DE-DCB
+  SessionID: b2688855-7f00-0002-6d8e-48d883f6abb6
+

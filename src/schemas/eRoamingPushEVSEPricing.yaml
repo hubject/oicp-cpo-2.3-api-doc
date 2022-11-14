@@ -1,0 +1,36 @@
+type: object
+description: eRoamingPushEVSEPricing is a message that is sent in order to upload a list of EVSEs and the pricing products (i.e. tarrifs) applicable for (charging or reservation) sessions at these EVSEs.
+required:
+  - ActionType
+  - EVSEPricing
+properties:
+  ActionType:
+    type: string
+    enum: ['fullLoad', 'update', 'insert', 'delete']
+    description: Describes the action that has to be performed by Hubject with the provided data.
+  EVSEPricing:
+    type: array
+    description: A list of EVSEs and their respective pricing product relation
+    items:
+      type: object
+      required:
+        - EvseID
+        - ProviderID
+        - EvseIDProductList
+      properties:
+        EvseID:
+          $ref: "./EvseID.yaml"
+        ProviderID:
+          $ref: "./ProviderIDAsterisk.yaml"
+        EvseIDProductList:
+          type: array
+          description: A list of pricing products applicable per EvseID
+          items:
+            $ref: "./ProductID.yaml"
+example:
+  ActionType: fullLoad
+  EVSEPricing:
+    - EvseID: DE*XYZ*ETEST1
+      EvseIDProductList:
+        - "AC 1"
+      ProviderID: "*"

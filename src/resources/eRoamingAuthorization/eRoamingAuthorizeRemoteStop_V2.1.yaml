@@ -1,0 +1,29 @@
+post:
+  summary: eRoamingAuthorizeRemoteStop_v2.1
+  operationId: eRoamingAuthorizeRemoteStop_v2.1
+  description: |
+    __Note:__
+      * To `SEND`
+      * Implementation: `MANDATORY`
+
+    ![Remote stop diagram](images/remotestop.png)
+
+    eRoamingAuthorizeRemoteStop basically works in the same way as eRoamingAuthorizeRemoteStart. The only difference is that this request is sent in order to initiate the stopping of a charging process. The request `MUST` contain the SessionID that was created by Hubject after the initial eRoamingAuthorizeRemoteStart request.
+
+  tags:
+    - eRoamingAuthorization
+  parameters:
+    - $ref: "../../parameters/path/externalID.yaml"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/eRoamingAuthorizeRemoteStop.yaml"
+  responses:
+    '200':
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/eRoamingAcknowledgment.yaml"

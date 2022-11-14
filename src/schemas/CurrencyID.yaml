@@ -1,0 +1,15 @@
+type: string
+description: |
+  The ProductPriceCurrencyType allows for the list of active codes of the official ISO 4217 currency names.
+
+  For the full list of active codes of the official ISO 4217 currencies, see: [https://www.iso.org/iso-4217-currency-codes.html](https://www.iso.org/iso-4217-currency-codes.html)
+
+  Examples:
+
+  | Option | Description |
+  | ------ | ----------- |
+  | EUR | Euro |
+  | CHF | Swiss franc |
+  | CAD | Canadian Dollar |
+  | GBP | Pound sterling
+example: EUR

@@ -1,0 +1,4 @@
+type: string
+description: The type of ChargingNotification
+enum: ['Start', 'Progress', 'End', 'Error']
+example: Start

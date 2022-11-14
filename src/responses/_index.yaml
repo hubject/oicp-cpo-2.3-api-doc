@@ -1,0 +1,6 @@
+eRoamingAcknowledgment:
+  $ref: "./eRoamingAcknowledgment.yaml"
+eRoamingAuthorizationStart:
+  $ref: "./eRoamingAuthorizationStart.yaml"
+eRoamingAuthorizationStop:
+  $ref: "./eRoamingAuthorizationStop.yaml"

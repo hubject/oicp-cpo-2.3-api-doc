@@ -1,0 +1,37 @@
+type: object
+description: |
+  The acknowledgement is a message that is sent in response to several requests.
+
+  * To `SEND` and `RECEIVE`
+  * Implementation: `MANDATORY`
+required:
+  - Result
+  - StatusCode
+properties:
+  Result:
+    type: boolean
+    description: |
+      If result is true, the message was received and the respective operation was performed successfully.
+
+      If result is false, the message was received and the respective operation was not performed successfully.
+  StatusCode:
+    $ref: './StatusCode.yaml'
+  SessionID:
+    $ref: './SessionID.yaml'
+  CPOPartnerSessionID:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by the CPO to the related operation.
+  EMPPartnerSessionID:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by an EMP to the related operation.
+example:
+  Result: true
+  StatusCode:
+    AdditionalInfo: Success
+    Code: '000'
+    Description: Success
+  SessionID: f98efba4-02d8-4fa0-b810-9a9d50d2c527
+  CPOPartnerSessionID: 1234XYZ
+  EMPPartnerSessionID: 2345ABC

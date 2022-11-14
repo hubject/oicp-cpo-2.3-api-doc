@@ -1,0 +1,23 @@
+type: object
+description: energy source that the charging station uses to supply electric energy
+properties:
+  Energy:
+    type: string
+    description: |
+      | Option | Description |
+      | Solar | Energy coming from Solar radiation |
+      | Wind | Energy produced by wind |
+      | HydroPower | Energy produced by the movement of water |
+      | GeothermalEnergy | Energy coming from the sub-surface of the earth |
+      | Biomass | Energy produced using plant or animal material as fuel |
+      | Coal | Energy produced using coal as fuel |
+      | NuclearEnergy | Energy being produced by nuclear fission |
+      | Petroleum | Energy produced by using Petroleum as fuel |
+      | NaturalGas | Energy produced using Natural Gas as fuel |
+
+    enum: ['Solar', 'Wind', 'HydroPower', 'GeothermalEnergy', 'Biomass', 'Coal', 'NuclearEnergy', 'Petroleum', 'NaturalGas']
+  Percentage:
+    type: integer
+    description: Percentage of EnergyType being used by the charging stations
+    maximum: 99
+    minimum: 0

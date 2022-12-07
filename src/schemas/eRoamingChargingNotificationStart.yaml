@@ -10,6 +10,7 @@ required:
   - SessionID
   - EvseID
   - ChargingStart
+  - OperatorID
 properties:
   Type:
     $ref: "./ChargingNotificationType.yaml"

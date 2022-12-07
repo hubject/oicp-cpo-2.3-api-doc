@@ -284,9 +284,7 @@ description: |
 
   XML - Extensible Markup Language: A technical language that defines the format and encoding of documents for data exchange.
 
-license:
-  name: MIT
 contact:
   name: API Support
-  url: http://www.example.com/support
-  email: support@example.com
+  url: https://support.hubject.com
+  email: support@hubject.com

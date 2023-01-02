@@ -20,19 +20,7 @@ properties:
   EvseID:
     $ref: "./EvseID.yaml"
   Identification:
-    type: object
-    description: Authentication data used to authorize the user or car.
-    properties:
-      RFIDMifareFamilyIdentification:
-        $ref: './RFIDMifareFamilyIdentification.yaml'
-      RFIDIdentification:
-        $ref: './RFIDIdentification.yaml'
-      QRCodeIdentification:
-        $ref: './QRCodeIdentification.yaml'
-      PlugAndChargeIdentification:
-        $ref: './PlugAndChargeIdentification.yaml'
-      RemoteIdentification:
-        $ref: './RemoteIdentification.yaml'
+    $ref: "./Identification.yaml"
   PartnerProductID:
     $ref: "./ProductID.yaml"
 example:

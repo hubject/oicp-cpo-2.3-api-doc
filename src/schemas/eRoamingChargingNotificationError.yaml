@@ -31,19 +31,9 @@ properties:
       Partner systems can use this field to link their own session handling to HBS processes.
     maximum: 250
   Identification:
-    type: object
-    description: Authentication data
-    properties:
-      RFIDMifareFamilyIdentification:
-        $ref: './RFIDMifareFamilyIdentification.yaml'
-      RFIDIdentification:
-        $ref: './RFIDIdentification.yaml'
-      QRCodeIdentification:
-        $ref: './QRCodeIdentification.yaml'
-      PlugAndChargeIdentification:
-        $ref: './PlugAndChargeIdentification.yaml'
-      RemoteIdentification:
-        $ref: './RemoteIdentification.yaml'
+    $ref: "./Identification.yaml"
+  OperatorID:
+    $ref: "./OperatorID.yaml"
   EvseID:
     $ref: "./EvseID.yaml"
   ErrorType:

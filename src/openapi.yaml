@@ -68,7 +68,7 @@ paths:
     $ref: "./resources/eRoamingAuthorization/eRoamingChargeDetailRecord_V2.2.yaml" 
   /reservation/v11/providers/{providerID}/reservation-start-request:
     $ref: "./resources/eRoamingReservation/eRoamingAuthorizeRemoteReservationStart_V1.1.yaml"
-  /reservation/v11/providers/{providerID}/reservation-sttop-request:
+  /reservation/v11/providers/{providerID}/reservation-stop-request:
     $ref: "./resources/eRoamingReservation/eRoamingAuthorizeRemoteReservationStop_V1.1.yaml"
   /evsepush/v23/operators/{operatorID}/data-records:
     $ref: "./resources/eRoamingData/eRoamingPushEvseData_V2.3.yaml"

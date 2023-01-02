@@ -70,3 +70,13 @@ ReferenceUnit:
   $ref: "./ReferenceUnit.yaml"
 InfoTextType:
   $ref: "./InfoTextType.yaml"
+ProviderIDAsterisk:
+  $ref: "./ProviderIDAsterisk.yaml"
+Identification:
+  $ref: "./Identification.yaml"
+PricingProductDataRecord:
+  $ref: "./PricingProductDataRecord.yaml"
+EvseDataRecord:
+  $ref: "./EvseDataRecord.yaml"
+OpeningTimes:
+  $ref: "./OpeningTimes.yaml"

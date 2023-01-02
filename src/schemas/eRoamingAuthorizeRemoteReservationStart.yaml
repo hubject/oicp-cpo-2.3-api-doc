@@ -19,21 +19,7 @@ properties:
   EvseID:
     $ref: './EvseID.yaml'
   Identification:
-    type: object
-    description: |
-      1. The option RFIDIdentification `MUST` not be used in the eRoamingAuthorization process. For RFID Authorization, only the option RFIDMifareFamilyIdentification `SHOULD` be used in the respective eRoamingAuthorization messages.
-      2. For the Remote Authorization process, only the option RemoteIdentification MUST be used in the respective messages.
-    properties:
-      RFIDMifareFamilyIdentification:
-        $ref: './RFIDMifareFamilyIdentification.yaml'
-      RFIDIdentification:
-        $ref: './RFIDIdentification.yaml'
-      QRCodeIdentification:
-        $ref: './QRCodeIdentification.yaml'
-      PlugAndChargeIdentification:
-        $ref: './PlugAndChargeIdentification.yaml'
-      RemoteIdentification:
-        $ref: './RemoteIdentification.yaml'
+    $ref: "./Identification.yaml"
   PartnerProductID:
     $ref: "./ProductID.yaml"
   Duration:

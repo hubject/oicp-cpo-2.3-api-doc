@@ -3,7 +3,7 @@ description: |
   Authentication data details. The data structure differs depending on the authentication technology
 properties:
   EvcoID:
-    $ref: './EvcoId.yaml'
+    $ref: './EvcoID.yaml'
 required:
   - EvcoID
 example:

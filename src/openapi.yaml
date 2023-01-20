@@ -60,9 +60,9 @@ paths:
     $ref: "./resources/eRoamingAuthorization/eRoamingAuthorizeStart_V2.1.yaml" 
   /charging/v21/operators/{operatorID}/authorize/stop:
     $ref: "./resources/eRoamingAuthorization/eRoamingAuthorizeStop_V2.1.yaml"
-  /charging/v21/operators/{providerID}/authorize-remote/start:
+  /charging/v21/providers/{providerID}/authorize-remote/start:
     $ref: "./resources/eRoamingAuthorization/eRoamingAuthorizeRemoteStart_V2.1.yaml"
-  /charging/v21/operators/{externalID}/authorize-remote/stop:
+  /charging/v21/providers/{externalID}/authorize-remote/stop:
     $ref: "./resources/eRoamingAuthorization/eRoamingAuthorizeRemoteStop_V2.1.yaml"
   /cdrmgmt/v22/operators/{operatorID}/charge-detail-record:
     $ref: "./resources/eRoamingAuthorization/eRoamingChargeDetailRecord_V2.2.yaml" 

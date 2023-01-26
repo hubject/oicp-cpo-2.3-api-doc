@@ -1,0 +1,46 @@
+post:
+  summary: eRoamingAuthorizeRemoteReservationStart_V1.1
+  operationId: eRoamingAuthorizeRemoteReservationStart_V1.1
+  description: |
+    __Note:__
+      * To `RECEIVE`
+      * Implementation: `OPTIONAL`
+      * This operation is used by EMPs in order to remotely reserve a charging point.
+
+    ![Reservation start diagram](images/reservationstart.png)
+    
+    __Functional Description:__
+
+    Scenario:
+
+    A customer of an EMP wants to reserve a charging point of a CPO for a later charging process.
+    The customer informs his EMP of his intention, e.g. via mobile phone or smart phone application.
+    The EMP’s provider system can then initiate a reservation of the CPO’s charging point by sending an eRoamingAuthorizeRemoteReservationStart request to Hubject.
+    The request `MUST` contain the ProviderID and the EvseID.
+    The demanded reservation product can be specified using the field PartnerProductID.
+
+    Hubject will derive the CPO’s OperatorID from the EvseID.
+
+    Hubject will check whether there is a valid contract between the two partners for the service Reservation (EMP must be the subscriber). If so, Hubject continues with checking the charging point compatibility. In case that the CPO has uploaded at least one charging point data record, Hubject will check whether the requested EvseID is among the uploaded data. If not, Hubject will respond with the status code 603 “Unknown EvseID”. If yes, Hubject will check whether the charging spot’s property “IsHubjectCompatible” is set “true”. If the property is false, Hubject will respond with the status code 604 “EvseID is not Hubject compatible”.
+
+    In case that the requested EvseID is compatible or the CPO has not uploaded any EVSE records at all, Hubject generates a SessionID for the reservation process and forwards the request (including the SessionID) to the CPO. The CPO MUST return an eRoamingAcknowledgement message that MUST contain the result indicating whether the reservation was successful and that MAY contain a status code for further information.
+
+    In case that the CPO’s system cannot be addressed (e.g. due to technical problems), Hubject will return to the requestor a “false” result and a message indicating the connection error.
+
+  tags:
+    - eRoamingReservation
+  parameters:
+    - $ref: "../../parameters/path/providerID.yaml"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/eRoamingAuthorizeRemoteReservationStart.yaml"
+  responses:
+    '200':
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/eRoamingAcknowledgment.yaml"

@@ -1,0 +1,7 @@
+# path
+externalID:
+  $ref: './path/externalID.yaml'
+operatorID:
+  $ref: './path/operatorID.yaml'
+providerID:
+  $ref: './path/providerID.yaml'

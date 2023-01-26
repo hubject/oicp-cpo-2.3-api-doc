@@ -1,0 +1,13 @@
+type: string
+enum: ['No Payment', 'Direct', 'Contract']
+description: |
+  | Option | Description |
+  | ------ | ----------- |
+  | No payment | Free. |
+  | Direct | e. g. Cash, Card, SMS, ... |
+  | Contract | i. e. Subscription  |
+
+  Note
+
+  `No Payment` can not be combined with other payment option
+example: Direct

@@ -1,0 +1,49 @@
+type: object
+description: |
+  Note:
+    * To `RECEIVE`
+    * Implementation: `OPTIONAL`
+  
+  eRoamingAuthorizeStop is a message to request an authorization for stopping a charging process.
+
+  Note:
+
+  This message describes the response which has to be received in return to the eRoamingAuthorizeStop request.
+required:
+  - AuthorizationStatus
+  - StatusCode
+properties:
+  SessionID:
+    $ref: "./SessionID.yaml"
+  CPOPartnerSessionID:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by the CPO to the related operation.
+  EMPPartnerSessionID:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by an EMP to the related operation.
+  ProviderID:
+    $ref: "./ProviderID.yaml"
+  AuthorizationStatus:
+    type: string
+    enum: ['Authorized', 'NotAuthorized']
+    description: |
+      Information specifying whether the user is authorized to charge or not.
+
+      | Option | Description |
+      | ------ | ----------- |
+      | Authorized | User is authorized |
+      | NotAuthorized | User is not authorized |
+  StatusCode:
+    $ref: "./StatusCode.yaml"
+example:
+  AuthorizationStatus: Authorized
+  CPOPartnerSessionID: 1234XYZ
+  EMPPartnerSessionID: 2345ABC
+  ProviderID: DE-DCB
+  SessionID: f98efba4-02d8-4fa0-b810-9a9d50d2c527
+  StatusCode:
+    AdditionalInfo: Success
+    Code: "000"
+    Description: string

@@ -1,0 +1,6 @@
+name: operatorID
+in: path
+required: true
+description: The id of the operator
+schema:
+  type: string

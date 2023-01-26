@@ -1,0 +1,32 @@
+type: object
+required:
+  - Period
+  - on
+properties:
+  Period:
+    type: array
+    description: |
+      The starting and end time for pricing product applicability in the specified period
+    items:
+      type: object
+      required:
+        - begin
+        - end
+      properties:
+        begin:
+          type: string
+          description: The opening time
+          pattern: '[0-9]{2}:[0-9]{2}'
+        end:
+          type: string
+          description: The closing time
+          pattern: '[0-9]{2}:[0-9]{2}'
+  on:
+    type: string
+    enum: ['Everyday', 'Workdays', 'Weekend', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    description: Day values to be used in specifying periods on which the product is available. Workdays = Monday – Friday, Weekend = Saturday – Sunday
+example:
+  Period:
+    - begin: '08:30'
+      end: '22:45'
+  on: 'Everyday'

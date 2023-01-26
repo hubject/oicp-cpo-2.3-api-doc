@@ -1,0 +1,18 @@
+type: object
+required:
+  - ActionType
+  - OperatorEvseData
+properties:
+  ActionType:
+    type: string
+    enum: [fullLoad, update, insert, delete]
+    description: Describes the action that has to be performed by Hubject with the provided data.
+  OperatorEvseData:
+    
+example:
+  EvseID: DE*XYZ*ETEST1
+  CPOPartnerSessionID: 1234XYZ
+  EMPPartnerSessionID: 2345ABC
+  ProviderID: DE-DCB
+  SessionID: b2688855-7f00-0002-6d8e-48d883f6abb6
+

@@ -1,0 +1,109 @@
+type: object
+required:
+  - ActionType
+  - OperatorEvseData
+properties:
+  ActionType:
+    type: string
+    enum: [fullLoad, update, insert, delete]
+    description: Describes the action that has to be performed by Hubject with the provided data.
+  OperatorEvseData:
+    type: object
+    required:
+      - OperatorID
+      - OperatorName
+      - EvseDataRecord
+    properties:
+      OperatorID:
+        $ref: "./OperatorID.yaml"
+      OperatorName:
+        type: string
+        maximum: 100
+        description: Free text for operator
+      EvseDataRecord:
+        type: array
+        description: EVSE entries
+        items:
+          $ref: './EvseDataRecord.yaml'
+example:
+  ActionType: fullLoad
+  OperatorEvseData:
+    EvseDataRecord:
+      - Accessibility: "Restricted access"
+        AccessibilityLocation: ParkingGarage
+        AdditionalInfo:
+          - lang: en
+            value: "This charging station is for testing purposes"
+        Address:
+          City: "Berlin"
+          Country: "DEU"
+          Floor: "6OG"
+          HouseNum: "22"
+          PostalCode: "10829"
+          Region: "Berlin"
+          Street: "EUREF CAMPUS"
+          TimeZone: "UTC+01:00"
+          ParkingFacility: true
+          ParkingSpot: "E36"
+        AuthenticationModes:
+          - "NFC RFID Classic"
+          - "REMOTE"
+        CalibrationLawDataAvailability: Local
+        ChargingFacilities:
+          - Amperage: 32
+            Power: 22
+            PowerType: AC_3_PHASE
+            Voltage: 480
+            ChargingModes:
+              - Mode_4
+        ChargingPoolID: "DE*ABC*P1234TEST*1"
+        ChargingStationID: "TEST 1"
+        ChargingStationImage: "http://www.testlink.com"
+        ChargingStationNames:
+          - lang: en
+            value: "ABC Charging Station Test"
+          - lang: de
+            value: "ABC Testladestation"
+        ChargingStationLocationReference:
+            - lang: en
+              value: "Charging station is inside Hubject Officem Parking Lot"
+        ClearinghouseID: "TEST ID"
+        DynamicInfoAvailable: "true"
+        DynamicPowerLevel: true
+        EvseID: "DE*XYZ*ETEST1"
+        EnergySource:
+          - Energy: "Solar"
+            Percentage: 85
+          - Energy: "Wind"
+            Percentage: 15
+        EnvironmentalImpact:
+          CO2Emission: 30.3
+        GeoChargingPointEntrance: 
+          Google:
+            Coordinates: "52.480495 13.356465"
+        GeoCoordinates:
+          Google:
+            Coordinates: "52.480495 13.356465"
+        HardwareManufacturer: "Charger Hardware Muster Company"
+        HotlinePhoneNumber: "+49123123123123"
+        HubOperatorID: "DE*ABC"
+        IsHubjectCompatible: true
+        IsOpen24Hours: false
+        MaxCapacity: 50
+        OpeningTimes:
+            - Period:
+                - begin: "09:00"
+                  end: "18:00"
+              on: "Everyday"
+        PaymentOptions:
+          - "No Payment"
+        Plugs:
+          - "Type 2 Outlet"
+        RenewableEnergy: true
+        SubOperatorName: "XYZ Technologies"
+        ValueAddedServices:
+          - "Reservation"
+        deltaType: "insert"
+        lastUpdate: "2018-01-23T14:04:29.377Z"
+    OperatorID: DE*ABC
+    OperatorName: ABC technologies

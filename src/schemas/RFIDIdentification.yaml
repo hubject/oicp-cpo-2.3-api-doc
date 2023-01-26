@@ -1,0 +1,23 @@
+type: object
+description: |
+  Authentication data details. The data structure differs depending on the authentication technology
+properties:
+  UID:
+    $ref: './UID.yaml'
+  EvcoID:
+    $ref: './EvcoID.yaml'
+  RFID:
+    $ref: './RFID.yaml'
+  PrintedNumber:
+    type: string
+    maximum: 150
+    description: A number printed on a customer’s card for manual authorization (e.q. via a call center)
+  ExpiryDate:
+    type: string
+    description: Until when this card is valid. Should not be set if card does not have an expiration
+required:
+  - UID
+  - RFID
+example:
+  UID: 7568290FFF765F
+  RFID: mifareCls

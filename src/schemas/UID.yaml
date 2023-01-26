@@ -1,0 +1,9 @@
+type: string
+pattern: ^([0-9A-F]{8,8}|[0-9A-F]{14,14}|[0-9A-F]{20,20})$
+description: |
+  Authentication data details. The data structure differs depending on the authentication technology
+
+  The expression validates the string as a unique RFID with a length of 8, 14 or 20 characters.
+
+  Examples: “7568290FFF765F”
+example: 7568290FFF765F

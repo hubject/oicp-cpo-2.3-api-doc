@@ -1,0 +1,27 @@
+type: object
+required:
+  - SessionID
+  - ProviderID
+  - EvseID
+properties:
+  SessionID:
+    $ref: "./SessionID.yaml"
+  CPOPartnerSessionID:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by the CPO to the related operation.
+  EMPPartnerSessionID:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by an EMP to the related operation.
+  ProviderID:
+    $ref: "./ProviderID.yaml"
+  EvseID:
+    $ref: "./EvseID.yaml"
+example:
+  CPOPartnerSessionID: 1234XYZ
+  EMPPartnerSessionID: 2345ABC
+  ProviderID: DE-DCB
+  SessionID: f98efba4-02d8-4fa0-b810-9a9d50d2c527
+  EvseID: DE*XYZ*ETEST1
+  

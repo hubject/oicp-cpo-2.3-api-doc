@@ -1,0 +1,41 @@
+type: string
+pattern: ([A-Za-z]{2}\*?[A-Za-z0-9]{3}\*?P[A-Za-z0-9\*]{1,30})
+description: |
+  VSEs may be grouped by using a charging pool id according to emi³ standard definition. The Evse Pool ID MUST match the following structure (the notation corresponds to the augmented Backus-Naur Form (ABNF) as defined in RFC5234):
+  <Evse Pool ID> = <Country Code> <S> <Spot Operator ID> <S> <ID Type> <Pool ID>
+
+  with:
+
+  <Country Code> = 2 ALPHA ; two character country code according to ISO-3166-1 (Alpha-2-Code).
+
+  <Spot Operator ID> = 3 (ALPHA / DIGIT); three alphanumeric characters.
+
+  <ID Type> = “P”; one character “P” indicating that this ID represents a “Pool”.
+
+  <Pool Instance> = (ALPHA / DIGIT) 1 * 30 ( 1*(ALPHA / DIGIT) [/ <S>] ); between 1 and 31sequence of alphanumeric characters, including additional optional separators. Starts with alphanumeric character referring to a specific Pool in EVSE Operator data system.
+
+  ALPHA = %x41-5A / %x61-7A; according to RFC 5234 (7-Bit ASCII).
+
+  DIGIT = %x30-39; according to RFC 5234 (7-Bit ASCII).
+
+  <S> = *1 ( “*” ); optional separator
+
+  An example for a valid Evse Pool ID is “IT*123*P456*AB789” with :
+
+  “IT” indicating Italy,
+
+  “123” representing a particular Spot Operator,
+
+  “P” indicating the Pool, and
+
+  “456*AB789” representing one of its POOL.
+
+  Note
+
+  In contrast to the eMA ID, no check digit is specified for the Evse Pool ID in this document. Alpha characters SHALL be interpreted case insensitively. emi³ strongly recommends that implementations SHOULD - use the separator between Country Code and Spot Operator ID - use the separator between Spot Operator ID and ID type
+  This leads to the following regular expression:
+
+  `([A-Za-z]{2}\*?[A-Za-z0-9]{3}\*?P[A-Za-z0-9\*]{1,30})`
+  
+  This regular expression is similar to that of the ISO EvseIDType but E is replaced with P to indicate a pool.
+example: IT*123*P456*AB789

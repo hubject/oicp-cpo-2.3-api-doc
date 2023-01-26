@@ -1,0 +1,10 @@
+type: object
+description: |
+  Authentication data details. The data structure differs depending on the authentication technology
+properties:
+  UID:
+    $ref: './UID.yaml'
+required:
+  - UID
+example:
+  UID: 7568290FFF765F

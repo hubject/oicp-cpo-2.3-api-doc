@@ -1,0 +1,6 @@
+name: providerID
+in: path
+required: true
+description: The id of the provider
+schema:
+  type: string

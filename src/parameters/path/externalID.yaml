@@ -1,0 +1,6 @@
+name: externalID
+in: path
+required: true
+description: external id
+schema:
+  type: string

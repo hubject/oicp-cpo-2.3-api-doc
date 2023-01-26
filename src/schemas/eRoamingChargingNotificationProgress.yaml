@@ -1,0 +1,96 @@
+type: object
+description: |
+  A customer of EMP has started the charging session. Just like as that of regular gasoline stations customer would like to know either how much charging Duration have passed or how much energy is consumed by the EV so far. This information will help Customer to decide if he/she wants to stop the charging session as per their affordability or journey planning.
+
+  The CPO’s backend system MAY send a ChargingNotification of type “Progess” after the CPO gets the charging energy or time information from EVSEID. This is required in order to inform the EMP that the progress energy or chargingduration for a perticular charging session.
+
+  The ChargingNotification of type “Progress” is a message that contains information about the charging Duration or energy consumed during charging process (e.g. EventOccurred, ChargingDuration, ConsumedEnergyProgress).
+required:
+  - Type
+  - SessionID
+  - EvseID
+  - ChargingStart
+  - EventOccurred
+  - OperatorID
+properties:
+  Type:
+    $ref: "./ChargingNotificationType.yaml"
+  SessionID:
+    $ref: "./SessionID.yaml"
+  CPOPartnerSessionID:
+    type: string
+    description: |
+      Optional field containing the session ID assigned by the CPO to the related operation.
+
+      Partner systems can use this field to link their own session handling to HBS processes.
+    maximum: 250
+  EMPPartnerSessionID:
+    type: string
+    description: |
+      Optional field containing the session ID assigned by an EMP to the related operation.
+
+      Partner systems can use this field to link their own session handling to HBS processes.
+    maximum: 250
+  Identification:
+    $ref: "./Identification.yaml"
+  EvseID:
+    $ref: "./EvseID.yaml"
+  ChargingStart:
+    type: string
+    format: date-time
+    description: The date and time at which the charging process started.
+  EventOccurred:
+    type: string
+    format: date-time
+    description: The date and time at which the charging progress parameters are captured.
+  ChargingDuration:
+    type: integer
+    description: |
+      Charging Duration = EventOccurred - Charging Duration. It is a time in millisecond.
+
+      Either ChargingDuration or ConsumedEnergyProgress should be provided. Both can also be provided with each progress notification.
+  SessionStart:
+    type: string
+    format: date-time
+    description: The date and time at which the session started, e.g. swipe of RFID or cable connected.
+  ConsumedEnergyProgress:
+    type: number
+    description: |
+      This is consumed energy when from Start of charging process till the charging progress notification generated (EventOccurred)
+
+      Either ChargingDuration or ConsumedEnergyProgress should be provided. Both can also be provided with each progress notification.
+  MeterValueStart:
+    type: number
+    description: The starting meter value in kWh.
+  MeterValueInBetween:
+    type: object
+    description: List of meter values that may have been taken in between (kWh).
+    properties:
+      meterValues:
+        type: array
+        items:
+          type: number
+  OperatorID:
+    $ref: "./OperatorID.yaml"
+  PartnerProductID:
+    $ref: "./ProductID.yaml"
+example:
+  Type: Progress
+  CPOPartnerSessionID: 1234XYZ
+  EMPPartnerSessionID: 2345ABC
+  ChargingStart: '2020-09-23T14:17:53.038Z'
+  EventOccurred: '2020-09-23T14:25:53.038Z'
+  ChargingDuration: 48000
+  ConsumedEnergyProgress: 9
+  EvseID: DE*XYZ*ETEST1
+  Identification:
+    RFIDMifareFamilyIdentification:
+      UID: 1234ABCD
+  MeterValueStart: 0
+  MeterValueInBetween:
+    meterValues:
+      - 9
+  PartnerProductID: AC 1
+  SessionID: f98efba4-02d8-4fa0-b810-9a9d50d2c527
+  SessionStart: '2020-09-23T14:17:53.038Z'
+  OperatorID: DE*ABC

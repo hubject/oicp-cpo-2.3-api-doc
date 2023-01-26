@@ -1,0 +1,47 @@
+post:
+  summary: eRoamingChargeDetailRecord_V2.2
+  operationId: eRoamingChargeDetailRecord_V2.2
+  description: |
+    __Note:__
+      * To `SEND`
+      * Implementation: `MANDATORY`
+
+    ![Charge Detail Record diagram](images/cdr.png)
+    
+    __Functional Description:__
+    
+    Scenario:
+    
+    A customer of an EMP has charged a vehicle at a charging station of a CPO. The charging process was started with an eRoamingAuthorizeStart or an eRoamingAuthorizeRemoteStart operation. The process may have been stopped with an eRoamingAuthorizeStop or an eRoamingAuthorizeRemoteStop operation. A preceding stop request is not a necessary precondition for the processing of an eRoamingChargeDetailRecord request. The CPO’s provider system `MUST` send an eRoamingChargeDetailRecord (CDR) after the end of the charging process in order to inform the EMP of the charging session data (e.g. meter values and consumed energy) and further charging process details.
+
+    Note:
+
+    The CPO `MUST` provide the same SessionID that was assigned to the corresponding charging process. Based on this information Hubject will be able to assign the session data to the correct process.
+
+    Hubject will identify the receiving EMP and will forward the CDR to the corresponding EMP. The EMP `MUST` return an eRoamingAcknowledgement message that `MUST` contain the result indicating whether the session data was received successfully and that `MAY` contain a status code for further information.
+
+    Hubject will accept only one CDR per SessionID.
+
+    In addition to forwarding the CDR to the EMP, Hubject also stores the CDR. In case that the recipient provider’s system cannot be addressed (e.g. due to technical problems), Hubject will nevertheless return to the requestor a positive result provided that storing the CDR was successful.
+
+    Note:
+    
+    Please note that in case of EMP role this part of the URL '/api/oicp/cdrmgmt/v21/operators/{operatorID}/charge-detail-record' will be added to your URL endpoint when sending the request through our HBS platform.
+
+  tags:
+    - eRoamingAuthorization
+  parameters:
+    - $ref: "../../parameters/path/operatorID.yaml"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/eRoamingChargeDetailRecord.yaml"
+  responses:
+    '200':
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/eRoamingAcknowledgment.yaml"

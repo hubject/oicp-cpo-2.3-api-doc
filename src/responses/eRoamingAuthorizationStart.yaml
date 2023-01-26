@@ -1,0 +1,10 @@
+description: |
+  Note:
+    * To `RECEIVE`
+    * Implementation: `MANDATORY`
+
+  eRoamingAuthorizationStart is a message that authorizes a user to charge a car. NOTE: This message describes the response which has to be receive in response to the eRoamingAuthorizeStart.
+content:
+  application/json:
+    schema:
+      $ref : "../schemas/eRoamingAuthorizationStart.yaml"

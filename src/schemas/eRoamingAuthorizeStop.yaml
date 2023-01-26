@@ -1,0 +1,52 @@
+type: object
+required:
+  - SessionID
+  - OperatorID
+  - Identification
+properties:
+  SessionID:
+    $ref: "./SessionID.yaml"
+  CPOPartnerSessionID:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by the CPO to the related operation.
+  EMPPartnerSessionID:
+    type: string
+    maximum: 250
+    description: Optional field containing the session id assigned by an EMP to the related operation.
+  OperatorID:
+    $ref: "./OperatorID.yaml"
+  EvseID:
+    $ref: "./EvseID.yaml"
+  Identification:
+    $ref: "./Identification.yaml"
+example: 
+  CPOPartnerSessionID: 1234XYZ
+  EMPPartnerSessionID: TestSession
+  EvseID: DE*XYZ*ETEST1
+  Identification:
+    RFIDMifareFamilyIdentification:
+      UID: 1234ABCD
+    QRCodeIdentification:
+      EvcoID: DE-DCB-C12345678-X
+      HashedPIN:
+        Function: Bcrypt
+        LegacyHashData:
+          Function: MD5
+          Salt: string
+          Value: string123456
+        Value: string123456
+      PIN: "1234"
+    PlugAndChargeIdentification:
+      EvcoID: DE-DCB-C12345678-X
+    RemoteIdentification:
+      EvcoID: DE-DCB-C12345678-X
+    RFIDIdentification:
+      EvcoID: DE-DCB-C12345678-X
+      ExpiryDate: "2021-01-23T14:21:23.744Z"
+      PrintedNumber: "9876655"
+      RFID: mifareCls
+      UID: 1234ABCD
+  OperatorID: DE*ABC
+  PartnerProductID: "AC 1"
+  SessionID: f98efba4-02d8-4fa0-b810-9a9d50d2c527

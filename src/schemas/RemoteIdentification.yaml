@@ -1,0 +1,10 @@
+type: object
+description: |
+  Authentication data details. The data structure differs depending on the authentication technology
+properties:
+  EvcoID:
+    $ref: './EvcoID.yaml'
+required:
+  - EvcoID
+example:
+  EvcoID: DE*8EO*Aet5e4*3

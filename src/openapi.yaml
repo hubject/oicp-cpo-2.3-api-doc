@@ -1,0 +1,89 @@
+openapi: "3.0.0"
+info:
+  $ref: "./info.yaml"
+servers:
+  - url: https://service-qa.hubject.com/api/oicp
+    description: QA environment
+  - url: https://service.hubject.com/api/oicp
+    description: Production environment
+tags:
+  - name: eRoamingAuthorization
+    description: |
+      The service eRoamingAuthorization contains several different operations. It `MUST` be offered by Hubject and the partner systems.
+  - name: eRoamingReservation
+    description: |
+      The service eRoamingReservation contains two operations.
+      It `MUST` be offered by Hubject and MAY be offered by CPO partner systems.
+      The Service `MUST` be enabled by Hubject for the CPO. If the charging station offers reservation services, the CPO can provide this information in the field ValueAddedServices.
+  - name: eRoamingEvseData
+    description: |
+      Hubject offers the possibility to upload and download charging spot (EVSE) data and, thus, to exchange data between different partners.
+
+      See apendix for a detailed business process diagram regarding the EVSE data service.
+
+      The eRoamingEvseData service offers two operations:
+
+      eRoamingPushEvseData in order to give CPOs the possibility to upload (push) EVSE master data
+
+      eRoamingPullEvseData in order to give EMPs the possibility to download (pull) EVSE data from partner operators via Hubject.
+
+      Hub CPOs may also push EVSE data of sub operators. Hubject does not distinguish between EVSE records of hub operators and related sub operators.
+  - name: eRoamingEvseStatus
+    description: |
+      Hubject offers the possibility to upload and download dynamic charging spot (EVSE) status information and thus to exchange the data between different partners.
+
+      The eRoamingEvseStatus service offers two operations:
+    
+      1. eRoamingPushEvseStatus in order to give CPOs the possibility to upload (push) EvseStatus data
+
+      2. eRoamingPullEvseStatus in order to give EMPs the possibility to download (pull) EVSE status data from partner operators via Hubject
+
+      Hub CPOs may also push EVSE status records of sub operators. Hubject does not distinguish between EvseStatus records of hub operators and related sub operators.
+  - name: eRoamingDynamicPricing
+    description: |
+      Since OICP 2.2, HBS offers the possibility to flexibly or dynamically price Authorization services. The service mainly enables pushing (upload) and pulling (download) of pricing data to and from the HBS through webservice requests and/or downloads/uploads in the Hubject portal.
+
+      Flexible pricing enables CPOs to offer differentiated pricing (in multiple currencies) of charging processes at their charging stations. The differentiation of prices can be done along relevant dimensions such as charging facility characteristics (e.g. maximum charging power), EVSE location and time. OICP 2.2 and OICP 2.3 offers the possibility to exchange this flexible price differentiation over webservice communication between CPOs and EMPs.
+
+      In addition to the above flexible pricing capability, OICP 2.2 and OICP 2.3 enables more frequent and near real-time update and exchange of pricing information between CPOs and EMPs. This is achieved whereby a CPO continuously pushes valid prices to the HBS for specific EMPs to pull these prices.
+
+      With OICP 2.2 and OICP 2.3 , the HBS offers an extensive breadth of technical capabilities for flexible and dynamic pricing of charging services for CPOs. Please refer to the supplementary document [“Dynamic Pricing - Functional Guide for Service Implementation”](https://support.hubject.com/hc/en-us/categories/360000238177-Flexible-Dynamic-Pricing) for more details and a holistic view (technical and business perspectives) of how to best capitalize on the capabilities offered by the eRoamingDynamicPricing service.
+
+      The eRoamingDynamicPricing service offers four operations, namely the:
+      1. eRoamingPushPricingProductData operation which gives CPOs the possibility to upload (push) pricing product information. Pricing products refer to the different tariffs offered by a CPO based on the differentiation dimensions mentioned above.
+      2. eRoamingPushEVSEPricing operation which gives CPOs the possibility to assign their various pricing products to individual EVSEs and thereby upload (push) location/EVSE-specific pricing data.
+      3. eRoamingPullPricingProductData operation which gives EMPs the possibility to download (pull) pricing product information uploaded by a CPO for the respective EMP.
+      4. eRoamingPullEVSEPricing operation which gives EMPs the possibility to download (pull) location/EVSE-specific pricing data uploaded by CPOs for the respective EMP.
+  - name: eRoamingChargingNotifications
+paths:
+  /charging/v21/operators/{operatorID}/authorize/start:
+    $ref: "./resources/eRoamingAuthorization/eRoamingAuthorizeStart_V2.1.yaml" 
+  /charging/v21/operators/{operatorID}/authorize/stop:
+    $ref: "./resources/eRoamingAuthorization/eRoamingAuthorizeStop_V2.1.yaml"
+  /charging/v21/providers/{providerID}/authorize-remote/start:
+    $ref: "./resources/eRoamingAuthorization/eRoamingAuthorizeRemoteStart_V2.1.yaml"
+  /charging/v21/providers/{externalID}/authorize-remote/stop:
+    $ref: "./resources/eRoamingAuthorization/eRoamingAuthorizeRemoteStop_V2.1.yaml"
+  /cdrmgmt/v22/operators/{operatorID}/charge-detail-record:
+    $ref: "./resources/eRoamingAuthorization/eRoamingChargeDetailRecord_V2.2.yaml" 
+  /reservation/v11/providers/{providerID}/reservation-start-request:
+    $ref: "./resources/eRoamingReservation/eRoamingAuthorizeRemoteReservationStart_V1.1.yaml"
+  /reservation/v11/providers/{providerID}/reservation-stop-request:
+    $ref: "./resources/eRoamingReservation/eRoamingAuthorizeRemoteReservationStop_V1.1.yaml"
+  /evsepush/v23/operators/{operatorID}/data-records:
+    $ref: "./resources/eRoamingData/eRoamingPushEvseData_V2.3.yaml"
+  /evsepush/v21/operators/{operatorID}/status-records:
+    $ref: "./resources/eRoamingEvseStatus/eRoamingPushEvseStatus_V2.1.yaml"
+  /dynamicpricing/v10/operators/{operatorID}/pricing-products:
+    $ref: "./resources/eRoamingDynamicPricing/eRoamingPushPricingProductData_V1.0.yaml"
+  /dynamicpricing/v10/operators/{operatorID}/evse-pricing:
+    $ref: "./resources/eRoamingDynamicPricing/eRoamingPushEVSEPricing_V1.0.yaml"
+  /notificationmgmt/v11/charging-notifications:
+    $ref: "./resources/eRoamingChargingNotifications/eRoamingChargingNotifications_V1.1.yaml"
+components:
+  parameters:
+    $ref: "./parameters/_index.yaml"
+  schemas:
+    $ref: "./schemas/_index.yaml"
+  responses:
+    $ref: "./responses/_index.yaml"

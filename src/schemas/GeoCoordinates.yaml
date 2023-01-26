@@ -1,0 +1,83 @@
+type: object
+description: |
+  Important
+  
+  __One of the following three options `MUST` be provided__
+properties:
+  Google:
+    type: object
+    description: |
+      Geocoordinates using Google Structure
+      Based on WGS84
+    required:
+      - Coordinates
+    properties:
+      Coordinates:
+        type: string
+        pattern: ^-?1?\d{1,2}\.\d{1,6}\s*\,?\s*-?1?\d{1,2}\.\d{1,6}$
+        description: |
+          A string that `MUST` be valid with respect to the following regular expression:
+
+          `^-?1?\d{1,2}\.\d{1,6}\s*\,?\s*-?1?\d{1,2}\.\d{1,6}$`
+          The expression validates the string as geo coordinates with respect to the Google standard. The string contains latitude and longitude (in this sequence) separated by a space.
+
+          Example: “47.662249 9.360922”
+        example: "47.662249 9.360922"
+  DecimalDegree:
+    type: object
+    description: Geocoordinates using DecimalDegree Structure
+    required:
+      - Longitude
+      - Latitude
+    properties:
+      Longitude:
+        type: string
+        pattern: ^-?1?\d{1,2}\.\d{1,6}$
+        description: |
+          A string that `MUST` be valid with respect to the following regular expression:
+
+          `^-?1?\d{1,2}\.\d{1,6}$`
+          The expression validates the string as a geo coordinate (longitude or latitude) with decimal degree syntax.
+
+          Examples: “9.360922”, “-21.568201”
+        example: "9.360922"
+      Latitude:
+        type: string
+        pattern: ^-?1?\d{1,2}\.\d{1,6}$
+        description: |
+          A string that `MUST` be valid with respect to the following regular expression:
+
+          `^-?1?\d{1,2}\.\d{1,6}$`
+          The expression validates the string as a geo coordinate (longitude or latitude) with decimal degree syntax.
+
+          Examples: “9.360922”, “-21.568201”
+        example: "9.360922" 
+  DegreeMinuteSeconds:
+    type: object
+    description: Geocoordinates using DegreeMinutesSeconds Structure
+    required:
+      - Longitude
+      - Latitude
+    properties:
+      Longitude:
+        type: string
+        pattern: ^-?1?\d{1,2}°[ ]?\d{1,2}'[ ]?\d{1,2}\.\d+''$
+        description: |
+          A string that `MUST` be valid with respect to the following regular expression:
+
+          `^-?1?\d{1,2}°[ ]?\d{1,2}'[ ]?\d{1,2}\.\d+''$`
+          The expression validates the string as a geo coordinate (longitude or latitude) consisting of degree, minutes, and seconds
+
+          Examples: “9°21'39.32''”, “-21°34'23.16''
+        example: "9°21'39.32''"
+      Latitude:
+        type: string
+        pattern: ^-?1?\d{1,2}°[ ]?\d{1,2}'[ ]?\d{1,2}\.\d+''$
+        description: |
+          A string that `MUST` be valid with respect to the following regular expression:
+
+          `^-?1?\d{1,2}°[ ]?\d{1,2}'[ ]?\d{1,2}\.\d+''$`
+          The expression validates the string as a geo coordinate (longitude or latitude) consisting of degree, minutes, and seconds
+
+          Examples: “9°21'39.32''”, “-21°34'23.16''
+        example: "9°21'39.32''"

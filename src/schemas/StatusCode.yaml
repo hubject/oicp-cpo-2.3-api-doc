@@ -1,0 +1,54 @@
+type: object
+description: |
+  The structure consists of a defined code, an optional functional description of the status, and optional additional information. It can be used e.g. to send error details or detailed reasons for a certain process or system behavior. The optional AdditionalInfo field can be used in order to provide further individual (non-standardized) information.
+required:
+  - Code
+properties:
+  Code:
+    type: string
+    description: |
+      | Option | Description | Area of Usage |
+      | -------|-------------|---------------|
+      | 000 | Success. | General codes |
+      | 001 | Hubject system error. | Internal system codes |
+      | 002 | Hubject database error. |Internal system codes|
+      | 009 |Data transaction error. | Internal system codes|
+      |017 |Unauthorized Access. |Internal system codes |
+      |018 |Inconsistent EvseID. |Internal system codes |
+      |019 |Inconsistent EvcoID. |Internal system codes |
+      |021 |System error. |General codes |
+      |022 |Data error. |General codes |
+      |101 |QR Code Authentication failed – Invalid Credentials. |Authentication codes |
+      |102 |RFID Authentication failed – invalid UID. |Authentication codes |
+      |103 |RFID Authentication failed – card not readable. |Authentication codes |
+      |105 |PLC Authentication failed - invalid EvcoID. |Authentication codes |
+      |106 |No positive authentication response. |Authentication codes / Internal system codes |
+      |110 |QR Code App Authentication failed – time out error. |Authentication codes |
+      |120 |PLC (ISO/ IEC 15118) Authentication failed – invalid underlying EvcoID. |Authentication codes |
+      |121 |PLC (ISO/ IEC 15118) Authentication failed – invalid certificate. |Authentication codes |
+      |122 |PLC (ISO/ IEC 15118) Authentication failed – time out error. |Authentication codes |
+      |200 |EvcoID locked. |Authentication codes |
+      |210 |No valid contract. |Session codes |
+      |300 |Partner not found. |Session codes |
+      |310 |Partner did not respond. |Session codes |
+      |320 |Service not available. |Session codes |
+      |400 |Session is invalid. |Session codes |
+      |501 |Communication to EVSE failed. |EVSE codes |
+      |510 |No EV connected to EVSE. |EVSE codes |
+      |601 |EVSE already reserved. |EVSE codes |
+      |602 |EVSE already in use/ wrong token. |EVSE codes |
+      |603 |Unknown EVSE ID. |EVSE codes |
+      |604 |EVSE ID is not Hubject compatible. |EVSE codes |
+      |700 |EVSE out of service. |EVSE codes |
+  Description:
+    type: string
+    description: description
+    maximum: 200
+  AdditionalInfo:
+    type: string
+    description: More information can be provided here
+    maximum: 1000
+example:
+  Code: '000'
+  Description: some description
+  AdditionalInfo: some additional info

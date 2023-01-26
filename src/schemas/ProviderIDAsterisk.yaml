@@ -1,0 +1,20 @@
+type: string
+pattern: ^([A-Za-z]{2}\-?[A-Za-z0-9]{3}|[A-Za-z]{2}[\*|-]?[A-Za-z0-9]{3})|\*$
+description: |
+  The ProviderID is defined by Hubject and is used to identify the EMP
+
+  A string that `MUST` be valid with respect to the following regular expression: ISO | DIN
+
+  `^([A-Za-z]{2}\-?[A-Za-z0-9]{3}|[A-Za-z]{2}[\*|-]?[A-Za-z0-9]{3})$`
+
+  The expression validates the string as ProviderID including the preceding country code, which is part of EvcoID. It supports both definitions DIN SPEC 91286:2011-11 as well as ISO 15118-1.
+
+  In case the ProviderID is provided corresponding to ISO, the country code `MUST` be provided as Alpha-2-Code (DIN EN ISO-3166-1) and the separator character “-” is optional.
+
+  Examples ISO: “DE8EO”, “DE-8EO”
+
+  Examples DIN: “DE8EO”, “DE*8EO”, “DE-8EO”
+
+   In case the data is to be made available for all EMPs (e.g. for Offer-to-All prices), the asterix character (*) can be set as the value in this field.
+   
+example: DE-8EO

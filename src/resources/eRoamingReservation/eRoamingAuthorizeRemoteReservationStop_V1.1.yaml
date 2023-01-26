@@ -1,0 +1,31 @@
+post:
+  summary: eRoamingAuthorizeRemoteReservationStop_V1.1
+  operationId: eRoamingAuthorizeRemoteReservationStop_V1
+  description: |
+    __Note:__
+      * To `RECEIVE`
+      * Implementation: `OPTIONAL`
+
+    ![Reservation stop diagram](images/reservationstop.png)
+    
+    eRoamingAuthorizeRemoteReservationStop basically works in the same way as eRoamingAuthorizeRemoteReservationStart.
+    The only difference is that this request is sent in order to end the reservation of a charging spot.
+    The request `MUST` contain the SessionID that was created by Hubject after the initial eRoamingAuthorizeRemoteReservationStart request.
+    After the eRoamingAuthorizeRemoteReservationStop the CPO `MUST` provide a CDR.
+  tags:
+    - eRoamingReservation
+  parameters:
+    - $ref: "../../parameters/path/providerID.yaml"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/eRoamingAuthorizeRemoteReservationStop.yaml"
+  responses:
+    '200':
+      description: Expected response to a valid request
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/eRoamingAcknowledgment.yaml"

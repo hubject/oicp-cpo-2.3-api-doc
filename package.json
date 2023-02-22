@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "copy-files": "cp -r src/images/ _build/images && cp src/index.html _build",
-    "build": "swagger-cli bundle src/openapi.yaml --outfile _build/openapi.yaml --type yaml && npm run copy-files",
-    "test": "npm run build && spectral lint _build/openapi.yaml",
-    "preview": "npm run build && cd _build && npx @redocly/cli preview-docs openapi.yaml",
-    "clean": "rm -r _build"
+    "build": "swagger-cli bundle src/openapi.yaml --outfile ./openapi.yaml --type yaml",
+    "test": "npm run build && spectral lint ./openapi.yaml",
+    "preview": "npm run build && npx @redocly/cli preview-docs openapi.yaml",
+    "clean": "rm -r openapi.yaml"
   },
   "author": "",
   "license": "ISC",

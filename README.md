@@ -18,5 +18,4 @@ Compiled documentation can be previewed using `npm run preview`
 
 ## GitHub Pages
 
-Page is hosted using `index.html`, `openapi.yaml` and `images/` from the main project directory.
-`openapi.yaml` file is created during build process and it should be commited together with change done to the source code of the documentation, this way changes will be visible to GitHub Pages as well.  
+Page is hosted using GitHub Pages. Page is generated with GitHub Actions and will be generated automatically when changes are pushed to master.

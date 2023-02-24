@@ -3,7 +3,7 @@ description: |
   Authentication required for Plug&Charge (EMAID/EVCOID)
 properties:
   EvcoID:
-    $ref: './EvcoId.yaml'
+    $ref: './EvcoID.yaml'
 required:
   - EvcoID
 example:

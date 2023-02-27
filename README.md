@@ -19,3 +19,7 @@ Compiled documentation can be previewed using `npm run preview`
 ## GitHub Pages
 
 Page is hosted using GitHub Pages. Page is generated with GitHub Actions and will be generated automatically when changes are pushed to master.
+
+Generated static content is pushed to `gh-pages` branch using `actions-gh-pages` action.
+
+Page can be accessed with the following URL: `https://hubject.github.io/oicp-cpo-2.3-api-doc/`

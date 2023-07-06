@@ -154,7 +154,7 @@ paths:
       operationId: eRoamingAuthorizeRemoteStart_v2.1
       description: |
         __Note:__
-          * To `SEND`
+          * To `RECEIVE`
           * Implementation: `MANDATORY`
           * This operation is used by EMPs in order to remotely start a charging process
 
@@ -202,7 +202,7 @@ paths:
       operationId: eRoamingAuthorizeRemoteStop_v2.1
       description: |
         __Note:__
-          * To `SEND`
+          * To `RECEIVE`
           * Implementation: `MANDATORY`
 
         ![Remote stop diagram](images/remotestop.png)

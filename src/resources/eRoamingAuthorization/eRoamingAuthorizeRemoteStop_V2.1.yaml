@@ -3,7 +3,7 @@ post:
   operationId: eRoamingAuthorizeRemoteStop_v2.1
   description: |
     __Note:__
-      * To `SEND`
+      * To `RECEIVE`
       * Implementation: `MANDATORY`
 
     ![Remote stop diagram](images/remotestop.png)

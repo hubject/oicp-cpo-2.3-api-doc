@@ -195,7 +195,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eRoamingAcknowledgmen'
+                $ref: '#/components/schemas/eRoamingAcknowledgment'
   '/charging/v21/providers/{externalID}/authorize-remote/stop':
     post:
       summary: eRoamingAuthorizeRemoteStop_v2.1
@@ -224,7 +224,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eRoamingAcknowledgmen'
+                $ref: '#/components/schemas/eRoamingAcknowledgment'
   '/cdrmgmt/v22/operators/{operatorID}/charge-detail-record':
     post:
       summary: eRoamingChargeDetailRecord_V2.2
@@ -271,7 +271,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eRoamingAcknowledgmen'
+                $ref: '#/components/schemas/eRoamingAcknowledgment'
   '/reservation/v11/providers/{providerID}/reservation-start-request':
     post:
       summary: eRoamingAuthorizeRemoteReservationStart_V1.1
@@ -317,7 +317,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eRoamingAcknowledgmen'
+                $ref: '#/components/schemas/eRoamingAcknowledgment'
   '/reservation/v11/providers/{providerID}/reservation-stop-request':
     post:
       summary: eRoamingAuthorizeRemoteReservationStop_V1.1
@@ -349,7 +349,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eRoamingAcknowledgmen'
+                $ref: '#/components/schemas/eRoamingAcknowledgment'
   '/evsepush/v23/operators/{operatorID}/data-records':
     post:
       summary: eRoamingPushEvseData_V2.3
@@ -389,7 +389,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eRoamingAcknowledgmen'
+                $ref: '#/components/schemas/eRoamingAcknowledgment'
   '/evsepush/v21/operators/{operatorID}/status-records':
     post:
       summary: eRoamingPushEvseStatus_V2.1
@@ -428,7 +428,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eRoamingAcknowledgmen'
+                $ref: '#/components/schemas/eRoamingAcknowledgment'
   '/dynamicpricing/v10/operators/{operatorID}/pricing-products':
     post:
       summary: eRoamingPushPricingProductData_V1.0
@@ -457,7 +457,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eRoamingAcknowledgmen'
+                $ref: '#/components/schemas/eRoamingAcknowledgment'
   '/dynamicpricing/v10/operators/{operatorID}/evse-pricing':
     post:
       summary: eRoamingPushEVSEPricing_V1.0
@@ -493,7 +493,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eRoamingAcknowledgmen'
+                $ref: '#/components/schemas/eRoamingAcknowledgment'
   /notificationmgmt/v11/charging-notifications:
     post:
       summary: eRoamingChargingNotifications_V1.1
@@ -535,7 +535,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/eRoamingAcknowledgmen'
+                $ref: '#/components/schemas/eRoamingAcknowledgment'
 components:
   parameters:
     externalID:
@@ -560,7 +560,7 @@ components:
       schema:
         type: string
   schemas:
-    eRoamingAcknowledgmen:
+    eRoamingAcknowledgment:
       type: object
       description: |
         The acknowledgement is a message that is sent in response to several requests.
@@ -2901,7 +2901,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/eRoamingAcknowledgmen'
+            $ref: '#/components/schemas/eRoamingAcknowledgment'
     eRoamingAuthorizationStart:
       description: |
         Note:

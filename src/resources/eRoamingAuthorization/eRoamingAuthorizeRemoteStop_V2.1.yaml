@@ -13,7 +13,7 @@ post:
   tags:
     - eRoamingAuthorization
   parameters:
-    - $ref: "../../parameters/path/externalID.yaml"
+    - $ref: "../../parameters/path/providerID.yaml"
   requestBody:
     required: true
     content:

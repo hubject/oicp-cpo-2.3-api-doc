@@ -196,7 +196,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/eRoamingAcknowledgment'
-  '/charging/v21/providers/{externalID}/authorize-remote/stop':
+  '/charging/v21/providers/{providerID}/authorize-remote/stop':
     post:
       summary: eRoamingAuthorizeRemoteStop_v2.1
       operationId: eRoamingAuthorizeRemoteStop_v2.1
@@ -211,7 +211,7 @@ paths:
       tags:
         - eRoamingAuthorization
       parameters:
-        - $ref: '#/components/parameters/externalID'
+        - $ref: '#/components/parameters/providerID'
       requestBody:
         required: true
         content:
@@ -538,13 +538,6 @@ paths:
                 $ref: '#/components/schemas/eRoamingAcknowledgment'
 components:
   parameters:
-    externalID:
-      name: externalID
-      in: path
-      required: true
-      description: external id
-      schema:
-        type: string
     operatorID:
       name: operatorID
       in: path

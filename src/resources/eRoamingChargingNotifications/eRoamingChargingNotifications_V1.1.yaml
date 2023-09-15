@@ -1,7 +1,13 @@
 post:
   summary: eRoamingChargingNotifications_V1.1
   operationId: eRoamingChargingNotifications_V1.1
-  description: | 
+  description: |
+    __Note:__
+      * To `SEND`
+      * Implementation: `OPTIONAL`
+    
+    __Functional Description:__
+    
     ![Charging notifications diagram](images/chargingnotifications.png)
     The ChargingNotification feature enables CPOs to notify EMPs about the end of charge
 

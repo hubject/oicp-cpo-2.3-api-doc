@@ -46,7 +46,7 @@ properties:
   ChargingDuration:
     type: integer
     description: |
-      Charging Duration = EventOccurred - Charging Duration. It is a time in millisecond.
+      Charging Duration = EventOccurred - ChargingStart. It is a time in millisecond.
 
       Either ChargingDuration or ConsumedEnergyProgress should be provided. Both can also be provided with each progress notification.
   SessionStart:
@@ -56,7 +56,7 @@ properties:
   ConsumedEnergyProgress:
     type: number
     description: |
-      This is consumed energy when from Start of charging process till the charging progress notification generated (EventOccurred)
+      This represents the consumed energy in kWh from the start of the charging process until the charging progress notification is generated (EventOccurred).
 
       Either ChargingDuration or ConsumedEnergyProgress should be provided. Both can also be provided with each progress notification.
   MeterValueStart:

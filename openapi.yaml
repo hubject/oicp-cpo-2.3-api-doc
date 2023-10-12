@@ -53,7 +53,7 @@ tags:
 
       In addition to the above flexible pricing capability, OICP 2.2 and OICP 2.3 enables more frequent and near real-time update and exchange of pricing information between CPOs and EMPs. This is achieved whereby a CPO continuously pushes valid prices to the HBS for specific EMPs to pull these prices.
 
-      With OICP 2.2 and OICP 2.3 , the HBS offers an extensive breadth of technical capabilities for flexible and dynamic pricing of charging services for CPOs. Please refer to the supplementary document [“Dynamic Pricing - Functional Guide for Service Implementation”](https://support.hubject.com/hc/en-us/categories/360000238177-Flexible-Dynamic-Pricing) for more details and a holistic view (technical and business perspectives) of how to best capitalize on the capabilities offered by the eRoamingDynamicPricing service.
+      With OICP 2.2 and OICP 2.3 , the HBS offers an extensive breadth of technical capabilities for flexible and dynamic pricing of charging services for CPOs. Please refer to the supplementary document [“Dynamic Pricing - Functional Guide for Service Implementation”](https://support.hubject.com/hc/en-us/articles/360002042838-Introduction-to-Flexible-Dynamic-Pricing) for more details and a holistic view (technical and business perspectives) of how to best capitalize on the capabilities offered by the eRoamingDynamicPricing service.
 
       The eRoamingDynamicPricing service offers four operations, namely the:
       1. eRoamingPushPricingProductData operation which gives CPOs the possibility to upload (push) pricing product information. Pricing products refer to the different tariffs offered by a CPO based on the differentiation dimensions mentioned above.

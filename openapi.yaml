@@ -2820,7 +2820,7 @@ components:
           description: Inform the EV driver where the ChargingPoint could be accessed.
           items:
             $ref: '#/components/schemas/InfoTextType'
-        GeoChargngPointEntrance:
+        GeoChargingPointEntrance:
           $ref: '#/components/schemas/GeoCoordinates'
         IsOpen24Hours:
           type: boolean

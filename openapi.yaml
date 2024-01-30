@@ -1147,7 +1147,7 @@ components:
               maximum: 400
         HubOperatorID:
           $ref: '#/components/schemas/OperatorID'
-        HubProviderId:
+        HubProviderID:
           $ref: '#/components/schemas/ProviderID'
       example:
         CalibrationLawVerificationInfo:

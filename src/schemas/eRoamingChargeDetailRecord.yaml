@@ -121,7 +121,7 @@ properties:
         maximum: 400
   HubOperatorID:
     $ref: "./OperatorID.yaml"
-  HubProviderId:
+  HubProviderID:
     $ref: "./ProviderID.yaml"
 example:
   CalibrationLawVerificationInfo:

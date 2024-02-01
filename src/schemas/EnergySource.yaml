@@ -19,5 +19,5 @@ properties:
   Percentage:
     type: integer
     description: Percentage of EnergyType being used by the charging stations
-    maximum: 99
+    maximum: 100
     minimum: 0

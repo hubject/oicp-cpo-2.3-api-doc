@@ -41,7 +41,7 @@ properties:
   SessionEnd:
     type: string
     format: date-time
-    description: The date and time at which the session started, e.g. swipe of RFID or cable connected.
+    description: The date and time at which the session ended, e.g. swipe of RFID or cable disconnected.
   MeterValueStart:
     type: number
     description: The starting meter value in kWh.
